@@ -3,6 +3,7 @@ Repositorio para disponibilizar el TP de Teoría de Control sobre el Sistema de 
 
 Autores:
 Emiliano Fernandez Boleda
+
 Laureano Enriquez
 
 ## 📋 Requisitos Previos
