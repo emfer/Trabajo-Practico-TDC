@@ -4,16 +4,16 @@ from matplotlib.animation import FuncAnimation
 from matplotlib.widgets import Button
 
 # --- CONFIGURACIÓN ---
-DT = 1 # 50ms (Velocidad de simulación adecuada)
+DT = 2 # 50ms (Velocidad de simulación adecuada)
 HISTORIAL = 200
-TARGET_SLIP = 0.20
+TARGET_SLIP = 0.15
 MAX_BRAKE_FORCE = 400.0 # Esto será el 100% de la barra
 
 # CONTROLADOR PID
 # Ajustado para que el freno sea firme y baje el slip por debajo de la linea
-KP =8.0  
-KI = 32.0   
-KD = 35.0   
+KP =4.0  
+KI = 5.0   
+KD = 20.0   
 
 class SistemaInteligente:
     def __init__(self):
@@ -23,7 +23,7 @@ class SistemaInteligente:
         # Tendencia a patinar (Fuerza del motor que intenta acelerar la rueda)
         # 0.5 = Asfalto (Agarre normal)
         # 8.0 = Hielo (Se dispara)
-        self.tendencia_base = 0.0 
+        self.tendencia_base = 0.2 
         
         self.factor_potencia = 1.0 
         self.freno_aplicado = 0.0
@@ -105,7 +105,7 @@ plt.subplots_adjust(bottom=0.25)
 # Gráfico 1: Deslizamiento
 ax1.set_title("MONITOR DE DESLIZAMIENTO (PID)")
 ax1.set_ylabel("Slip")
-ax1.set_ylim(-0.05, 0.8)
+ax1.set_ylim(-0.05, 0.6)
 ax1.grid(True, linestyle='--', alpha=0.6)
 line_slip, = ax1.plot(slip_data, 'r-', lw=2, label='Slip Real')
 line_ref, = ax1.plot(ref_data, 'g--', lw=2, label='Límite (0.20)')
@@ -196,3 +196,9 @@ def update(frame):
 
 ani = FuncAnimation(fig, update, interval=30, blit=False)
 plt.show()
+
+## AGregar
+# --- NOTAS FINALES ---
+# 1. Agregar caso de falla
+# 2. Agregar el SET referencia dinámico (cambiar target slip)
+# 3. Agregar cuando el sistema esta en estado estable, transitorio y falla.

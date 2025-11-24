@@ -14,9 +14,16 @@ Para ejecutar este proyecto necesitas tener instalado en tu computadora:
     * *Nota: Al instalar, asegúrate de marcar la casilla "Add Python to PATH".*
 2.  **Librerías de Python**: `numpy` y `matplotlib`.
 
-2. Instalar Dependencias
+3. **Instalar Dependencias:**
 Abrir terminal (CMD, PowerShell o la terminal de VS Code) en la carpeta del proyecto y ejecutar el siguiente comando para instalar las librerías necesarias:
 
-Bash
+### Bash
 
-pip install numpy matplotlib
+```pip install numpy matplotlib```
+
+3. Correr simulacion
+### CMD
+
+```python3 simu_v6.py```
+
+
