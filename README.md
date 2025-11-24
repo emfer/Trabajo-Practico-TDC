@@ -24,6 +24,6 @@ Abrir terminal (CMD, PowerShell o la terminal de VS Code) en la carpeta del proy
 3. Correr simulacion
 ### CMD
 
-```python3 simu_v6.py```
+```python3 simulacion_TDC.py```
 
 
