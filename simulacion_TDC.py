@@ -123,7 +123,7 @@ text_estado = ax1.text(0.02, 0.9, "ESTADO: ESTABLE", transform=ax1.transAxes,
 # Gráfico 2: Frenos
 ax2.set_title("ACCIÓN DE CONTROL (Freno)")
 ax2.set_ylabel("Intensidad (%)")
-ax2.set_ylim(0, 105)
+ax2.set_ylim(0, 10)
 ax2.grid(True, linestyle='--')
 line_freno, = ax2.plot(freno_data_pct, 'b-', lw=2, label='Freno TCS')
 fill_obj = None 
@@ -157,10 +157,10 @@ def set_escenario(tendencia):
     sistema.tendencia_base = tendencia
 
 # Ajusté los valores para que HIELO (15.0) sea tan agresivo que cause la falla
-b_asfalto.on_clicked(lambda x: set_escenario(0.0))
+b_asfalto.on_clicked(lambda x: set_escenario(0.1))
 b_lluvia.on_clicked(lambda x: set_escenario(2.0))
 b_lluvia_f.on_clicked(lambda x: set_escenario(4.0))
-b_nieve.on_clicked(lambda x: set_escenario(6.0))
+b_nieve.on_clicked(lambda x: set_escenario(7.0))
 b_hielo.on_clicked(lambda x: set_escenario(35.0)) # Valor muy alto para forzar falla
 
 def reset_sim(event):
